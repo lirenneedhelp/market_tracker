@@ -4,15 +4,16 @@ import os
 from datetime import datetime
 
 # --- CONFIGURATION ---
-# PASTE YOUR DISCORD WEBHOOK URL HERE
 WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
 # YOUR WATCHLIST & TARGETS
 WATCHLIST = {
     "VRTX": {"target": 450.50, "condition": "below", "msg": "🟢 BUY SIGNAL: Vertex hit limit price!"},
     "JD":   {"target": 30.00,  "condition": "below", "msg": "🔴 RISK ALERT: JD has dropped below support!"},
-    "QQQ":  {"target": 480.00, "condition": "below", "msg": "⚠️ OPPORTUNITY: Market dip detected."},
-    "CRWV": {"target": 65.00,  "condition": "below", "msg": "🚀 SIGNAL: CRWV below target!"}
+    "QQQ":  {"target": 600.00, "condition": "above", "msg": "🟢 BUY SIGNAL: Market dip detected."},
+    "CRWV": {"target": 65.00,  "condition": "below", "msg": "🚀 SIGNAL: CRWV below target!"},
+    "ORCL": {"target": 200.00,  "condition": "above", "msg": "🚀 SIGNAL: ORCL above resistance level!"},
+    "TEM" : {"target": 65.00,  "condition": "above", "msg": "🔴 ALERT: TEM past support!"}
 }
 
 def send_discord_alert(message):
@@ -34,7 +35,7 @@ def check_market():
     try:
         # Fetch data
         data = yf.download(tickers, period="1d", interval="1m", progress=False)['Close'].iloc[-1]
- 
+        data[ticker]
         for ticker, rules in WATCHLIST.items():
             current_price = data[ticker]
             if (rules['condition'] == "below" and current_price <= rules['target']) or \
