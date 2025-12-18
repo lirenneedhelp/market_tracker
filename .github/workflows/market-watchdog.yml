@@ -4,7 +4,6 @@ on:
   schedule:
     # This is "Cron" syntax. "*/15" means "Every 15 minutes"
     - cron: '*/15 14-21 * * 1-5'
-  workflow_dispatch: # This allows you to run it manually to test
 
 jobs:
   check-stocks:
