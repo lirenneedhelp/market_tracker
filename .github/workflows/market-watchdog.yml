@@ -1,0 +1,29 @@
+name: Market Watchdog
+
+on:
+  schedule:
+    # This is "Cron" syntax. "*/15" means "Every 15 minutes"
+    - cron: '*/15 13-21 * * 1-5'
+  workflow_dispatch: # This allows you to run it manually to test
+
+jobs:
+  check-stocks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Watchdog Script
+        env:
+          # This pulls the secret from your repo settings
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python watchdog.py
