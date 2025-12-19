@@ -11,9 +11,10 @@ WATCHLIST = {
     "VRTX": {"target": 450.50, "condition": "below", "msg": "🟢 BUY SIGNAL: Vertex hit limit price!"},
     "JD":   {"target": 30.00,  "condition": "below", "msg": "🔴 RISK ALERT: JD has dropped below support!"},
     "QQQ":  {"target": 600.00, "condition": "above", "msg": "🟢 BUY SIGNAL: Market dip detected."},
-    "CRWV": {"target": 65.00,  "condition": "below", "msg": "🚀 SIGNAL: CRWV below target!"},
+    "CRWV": {"target": 80.00,  "condition": "above", "msg": "🚀 SIGNAL: CRWV above target!"},
     "ORCL": {"target": 200.00,  "condition": "above", "msg": "🚀 SIGNAL: ORCL above resistance level!"},
     "TEM" : {"target": 65.00,  "condition": "above", "msg": "🔴 ALERT: TEM past support!"}
+
 }
 
 def send_discord_alert(message):
