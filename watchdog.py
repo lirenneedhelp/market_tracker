@@ -14,7 +14,6 @@ WATCHLIST = {
     "CRWV": {"target": 80.00,  "condition": "above", "msg": "🚀 SIGNAL: CRWV above target!"},
     "ORCL": {"target": 200.00,  "condition": "above", "msg": "🚀 SIGNAL: ORCL above resistance level!"},
     "TEM" : {"target": 65.00,  "condition": "above", "msg": "🔴 ALERT: TEM past support!"}
-
 }
 
 def send_discord_alert(message):
