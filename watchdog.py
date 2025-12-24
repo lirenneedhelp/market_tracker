@@ -36,8 +36,7 @@ def check_market():
         data[ticker]
         for ticker, rules in WATCHLIST.items():
             current_price = data[ticker]
-            if (rules['condition'] == "below" and current_price <= rules['target']) or \
-               (rules['condition'] == "above" and current_price >= rules['target']):
+            if (rules['condition'] == "below" and current_price <= rules['target']) or (rules['condition'] == "above" and current_price >= rules['target']):
                 
                 msg = f"**{rules['msg']}**\n📊 **{ticker}** is now **${current_price:.2f}**"
                 send_discord_alert(msg)
