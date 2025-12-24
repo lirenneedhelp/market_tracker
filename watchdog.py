@@ -33,11 +33,9 @@ def check_market():
     try:
         # Fetch data
         data = yf.download(tickers, period="1d", interval="1m", progress=False)['Close'].iloc[-1]
-        data[ticker]
         for ticker, rules in WATCHLIST.items():
             current_price = data[ticker]
-            if (rules['condition'] == "below" and current_price <= rules['target']) or (rules['condition'] == "above" and current_price >= rules['target']):
-                
+            if (rules['condition'] == "below" and current_price <= rules['target']) or (rules['condition'] == "above" and current_price >= rules['target']):         
                 msg = f"**{rules['msg']}**\n📊 **{ticker}** is now **${current_price:.2f}**"
                 send_discord_alert(msg)
                 
