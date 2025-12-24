@@ -28,8 +28,6 @@ def send_discord_alert(message):
         print(f"Failed to send alert: {e}")
 
 def check_market():
-    print(f"[{datetime.now().strftime('%H:%M')}] Checking markets...")
-
     tickers = list(WATCHLIST.keys())
 
     try:
