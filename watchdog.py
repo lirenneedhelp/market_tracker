@@ -9,13 +9,13 @@ WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 # YOUR WATCHLIST & TARGETS
 WATCHLIST = {
     "VRTX": {"target": 450.50, "condition": "below", "msg": "🟢 BUY SIGNAL: Vertex hit limit price!"},
-    "JD":   {"target": 30.00,  "condition": "below", "msg": "🔴 RISK ALERT: JD has dropped below support!"},
+    "JD":   {"target": 30.00,  "condition": "above", "msg": "🟢 ALERT: JD is above support!"},
     "QQQ":  {"target": 600.00, "condition": "below", "msg": "🔴 RISK SIGNAL: Market dip detected."},
     "CRWV": {"target": 70.00,  "condition": "below", "msg": "🔴 SIGNAL: CRWV below support!"},
     "ORCL": {"target": 200.00,  "condition": "above", "msg": "🚀 SIGNAL: ORCL above resistance level!"},
-    "TEM" : {"target": 65.00,  "condition": "above", "msg": "🔴 ALERT: TEM past resistance!"},
+    "TEM" : {"target": 70.00,  "condition": "above", "msg": "🔴 ALERT: TEM past resistance!"},
     "DUOL": {"target": 171.00,  "condition": "below", "msg": "🔴 ALERT: DUOL below support!"},
-    "ARM": {"target": 120.00,  "condition": "above", "msg": "🟢 ALERT: ARM above resistance!"},
+    "ARM": {"target": 116.00,  "condition": "above", "msg": "🟢 ALERT: ARM above resistance!"},
 }
 
 def send_discord_alert(message):
